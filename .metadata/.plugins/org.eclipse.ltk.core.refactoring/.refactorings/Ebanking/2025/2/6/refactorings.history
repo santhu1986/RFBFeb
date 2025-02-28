@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Repo.properties&apos; to &apos;Ebanking/src/com.ebanking.properties&apos;&#x0D;&#x0A;- Original project: &apos;Ebanking&apos;&#x0D;&#x0A;- Destination element: &apos;Ebanking/src/com.ebanking.properties&apos;&#x0D;&#x0A;- Original element: &apos;Repo.properties&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="/src&lt;com.ebanking.properties" element1="src/com/ebanking/master/Repo.properties" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1738930547880" units="0" version="1.0"/>
+</session>

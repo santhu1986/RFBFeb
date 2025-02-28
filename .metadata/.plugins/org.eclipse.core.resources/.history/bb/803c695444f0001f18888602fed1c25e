@@ -1,0 +1,105 @@
+package com.ebanking.master;
+
+import java.io.FileInputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Exepom 
+{
+	
+	WebDriver driver;
+	
+    @BeforeTest
+	public void Algn() throws InterruptedException
+	{
+		driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("http://103.211.39.246/ranford2/");
+		
+		//Login
+		
+		RanfordHP RHP=PageFactory.initElements(driver,RanfordHP.class);
+		RHP.Alogin();
+	}
+    
+    @Test
+    public void Role() throws InterruptedException 
+    {
+    	
+ // To Get Test Data File
+		
+		FileInputStream FIS=new FileInputStream("D:\\SeleniumJan25Prj\\Ebanking\\src\\com\\ebanking\\testdata\\Role.xlsx");
+	
+		//WorkBook
+		
+		XSSFWorkbook WB=new XSSFWorkbook(FIS);
+		
+		//Sheet
+		
+		XSSFSheet WS=WB.getSheet("RData");
+		
+		//Row Count
+		
+		int Rcount=WS.getLastRowNum();
+		System.out.println(Rcount);
+		
+		//Multiple Iterations -------- Loop
+		
+		for (int i=1;i<=Rcount;i++)
+		{
+		
+			//Row
+			
+			XSSFRow WR=WS.getRow(i);
+			
+			//Cell
+			
+			XSSFCell WC=WR.getCell(0);   //RoleName
+			XSSFCell WC1=WR.getCell(1);  //RoleType
+			
+			XSSFCell WC2=WR.createCell(2); //Results
+			
+			//Cell Values
+			
+			String Rname=WC.getStringCellValue();
+			String Rtyp=WC1.getStringCellValue();
+
+		Thread.sleep(3000);
+		
+		//Branches
+		
+		AdminHP AHP=PageFactory.initElements(driver,AdminHP.class);
+	    AHP.Rol();
+	    
+	    Thread.sleep(3000);
+	    
+	    //New Role
+	   RoleDetails RD=PageFactory.initElements(driver,RoleDetails.class);
+	   RD.NewRole();
+	   
+	   Thread.sleep(3000);
+	   //Role Creation
+	   
+	   RoleCreation RC=PageFactory.initElements(driver,RoleCreation.class);
+	   RC.Rcre(Rname,Rtyp);
+	   
+	   //Alert
+	   Thread.sleep(3000);
+	   driver.switchTo().alert().accept();
+	   
+	   //Home
+	   Thread.sleep(3000);
+	   RD.RoleHome();
+	   
+    }   
+	   
+    }  
+	}
