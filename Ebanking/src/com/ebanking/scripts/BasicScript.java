@@ -2,6 +2,7 @@ package com.ebanking.scripts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -9,13 +10,13 @@ public class BasicScript {
 
 	public static void main(String[] args) throws InterruptedException 
 	{
-		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\LENOVO\\OneDrive\\Desktop\\chromedriver.exe");
 		
 		//Launch Firefox
 		
 		String Expval="Ranford Bank";
 		
-	    WebDriver driver=new FirefoxDriver();
+	    WebDriver driver=new ChromeDriver();
 	    
 	    //Maximise
 	    
@@ -48,7 +49,7 @@ public class BasicScript {
 	    Expval="Welcome to Admin";
 	    
 	    driver.findElement(By.id("txtuId")).sendKeys("Admin");
-	    driver.findElement(By.id("txtPword")).sendKeys("Mindq@Prj");
+	    driver.findElement(By.id("txtPword")).sendKeys("Test@Mq");
 	    Thread.sleep(3000);
 	    driver.findElement(By.xpath("//*[@id=\'login\']")).click();
 	    

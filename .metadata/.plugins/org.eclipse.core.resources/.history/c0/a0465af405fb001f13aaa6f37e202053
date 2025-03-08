@@ -1,0 +1,9 @@
+Feature: Admin Login
+
+Scenario: Verify Admin Login with Valid data
+
+Given User Should on Ranford HP
+
+When User enters "Admin" & "Admin"
+
+Then User validates Admin Login

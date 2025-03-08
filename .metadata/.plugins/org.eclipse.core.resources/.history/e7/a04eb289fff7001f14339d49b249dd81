@@ -1,0 +1,15 @@
+package runner;
+
+import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features="D:\\SeleniumJan25Prj\\Ebanking\\src\\feature\\Alogin.feature",
+          glue="stepdefination")
+public class LoginRunner 
+{
+
+	
+}

@@ -1,0 +1,23 @@
+Feature: Role Creation
+
+Scenario Outline: Verify Role Creation with Multiple sets of data
+
+Given Tester should on RHP
+
+When Tester Enter Login Details
+
+Then Tester click on Role button
+
+When Tester click on new role and enters "<RoleName>" and "<RoleType>"
+
+Then Tester close the application  
+
+Examples:
+
+             |RoleName|RoleType|
+             | Teller | E |
+             | Cashier | E |
+             | Manager | E |
+             
+             
+             

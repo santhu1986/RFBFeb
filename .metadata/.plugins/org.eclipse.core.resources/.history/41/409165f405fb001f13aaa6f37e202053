@@ -1,0 +1,20 @@
+Feature: Role Creation
+
+Scenario Outline: Check Role Cration with Multiple sets of data
+
+Given Tester should on RHP
+
+When Tester enters Admin Login Details
+
+Then Tester Click on Role button
+
+When Tester click on NewRole and enters "<RoleName>" and "<RoleType>"
+
+Then Tester close the Application
+
+Examples:
+
+      | RoleName | RoleType |
+      | ManageraxisBnk | E |
+      | GenManageraxisBnk | E |
+      | AsstManageraxisBnk | E |
